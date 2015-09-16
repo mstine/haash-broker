@@ -28,13 +28,18 @@ public class ServiceInstance {
 
     @JsonSerialize
     @JsonProperty("organization_guid")
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String organizationGuid;
 
     @JsonSerialize
     @JsonProperty("space_guid")
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String spaceGuid;
+
+    @JsonSerialize
+    @JsonProperty("parameters")
+    @Column(nullable = true)
+    private String parameters;
 
     public String getId() {
         return id;

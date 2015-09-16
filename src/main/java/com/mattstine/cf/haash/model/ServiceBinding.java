@@ -32,6 +32,11 @@ public class ServiceBinding {
     @Column(nullable = false)
     private String appGuid;
 
+    @JsonSerialize
+    @JsonProperty("parameters")
+    @Column(nullable = true)
+    private String parameters;
+
     @OneToOne(orphanRemoval = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "service_binding_id")
     private Credentials credentials;
