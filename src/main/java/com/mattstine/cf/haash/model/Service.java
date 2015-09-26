@@ -24,6 +24,17 @@ public class Service {
     @JoinColumn(name = "service_id")
     private Set<Plan> plans = new HashSet<>();
 
+    @Transient
+    private final Metadata metadata;
+
+    public Service() {
+        this.metadata = new Metadata();
+    }
+
+    public Metadata getMetadata() {
+        return metadata;
+    }
+
     public String getId() {
         return id;
     }
