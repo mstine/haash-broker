@@ -2,15 +2,18 @@ package com.mattstine.cf.haash.model;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="service_instances")
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE)
 public class ServiceInstance {
     @Id
@@ -28,12 +31,12 @@ public class ServiceInstance {
 
     @JsonSerialize
     @JsonProperty("organization_guid")
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String organizationGuid;
 
     @JsonSerialize
     @JsonProperty("space_guid")
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String spaceGuid;
 
     public String getId() {
